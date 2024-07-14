@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Create BASH folder in home directory, if it does not exist.
+if [ ! -d ~/BASH ]; then
+	echo 'There is no BASH directory.'
+	mkdir ~/BASH
+	echo 'Created a BASH directory within home.'
+fi
+
+# Create the template BASH file, if it does not exist.
+if [ ! -f ~/BASH/.blank ]; then
+	echo 'There is no .blank file.'
+	echo '#!/bin/bash' > ~/BASH/blank
+	echo 'Created a .blank file in your BASH directory.'
+fi
+
+echo ' '
+echo '  What is the name of this new script?'
+echo ' '
+# Make sure that the name of the script is not already something in $PATH.
+read NAME
+cp ~/BASH/.blank $NAME
+xdg-open $NAME
