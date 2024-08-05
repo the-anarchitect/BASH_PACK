@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Delete the BASH folder in home directory, if it exists.
+if [ -d ~/BASH ]; then
+	echo 'There is a BASH directory within home.'
+	rm -rf ~/BASH
+	echo 'Deleted the BASH directory.'
+fi
+
+# Delete the BASH aliases file, if there is one..
+if [ -f ~/.bash_aliases ]; then
+	echo 'There is a BASH aliases file within home.'
+	rm ~/.bash_aliases
+	echo 'Deleted the BASH aliases file.'
+fi

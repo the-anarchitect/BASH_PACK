@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Create BASH folder, if it does not exist.
+if [ ! -d ~/BASH ]; then
+  echo 'There is no BASH directory.'
+  mkdir ~/BASH
+  echo 'Created a BASH directory.'
+fi
+cd BASH
+
+echo ' '
+echo '  Make aliases for all scripts in ~/BASH .'
+echo ' '
+for SCRIPT in $(ls);
+do
+  echo "alias $SCRIPT='sh ~/BASH/$SCRIPT'";
+done > ~/.bash_aliases
+echo 'cat ~/.bash_aliases'
+cat ~/.bash_aliases
+echo ' '
+echo '  Run ". ~/.bash_aliases" or restart terminal to load new aliases.'
+echo ' '
