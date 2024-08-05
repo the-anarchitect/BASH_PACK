@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Change theme from light mode to dark mode.
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+echo 'Changed theme from light to dark mode.'
+
+# Set the 'Dock' (like Windows Task Bar) to be on the bottom of the screen.
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
+echo 'Set the dock to be on the bottom instead of the side.'
+
+# Set 'Favorite' (like Pinned) items in Dock.
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.gedit.desktop', 'firefox_firefox.desktop']"
+gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
+gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
+echo 'Set favorites to Terminal, Nautilus, Text Editor, and FireFox.'
+
+# Remove 'Home' link from Desktop.
+gsettings set org.gnome.shell.extensions.ding show-home false
+echo 'Removed home folder link from desktop.'
+
+# Install Paper icon theme.
+sudo add-apt-repository -u ppa:snwh/ppa
+sudo apt install paper-icon-theme
+set org.gnome.desktop.interface icon-theme 'Paper'
+
+# Change desktop background.
+sudo rm -rf /usr/share/backgrounds/*
+echo 'Deleted stupid default backgrounds.'
+sudo wget -P /usr/share/backgrounds \
+     https://anarchitecture.io/graphics/backgrounds/skull-penguin_1080p.jpg \
+     https://anarchitecture.io/graphics/backgrounds/skull-penguin_1080p.png \
+     https://anarchitecture.io/graphics/backgrounds/skull-penguin_4K.jpg \
+     https://anarchitecture.io/graphics/backgrounds/skull-penguin_4K.png
+echo 'Downloaded awesome penguin and skull logo backgrounds in *.jpg and *.png / 1080p and 4K.'
